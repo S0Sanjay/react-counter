@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterControls from "./components/CounterControls";
 import ResetButtons from "./components/ResetButtons";
