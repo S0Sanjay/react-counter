@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0784b5;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.app.dark {
+  background: #000000;
+  color: #f5eded;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  transform: scale(1.1) rotate(10deg);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.counter-display {
+  font-size: clamp(4rem, 18vw, 12rem);
+  font-weight: 900;
+  margin: 2rem 0;
+  padding: 3rem 4rem;
+  background: rgba(202, 222, 239, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.app.dark .counter-display {
+  background: rgba(245, 237, 237, 0.2);
+  border-color: rgba(245, 237, 237, 0.3);
+  color: #f5eded;
+}
+
+.count {
+  transition: all 0.4s ease;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.count:hover {
+  transform: scale(1.08);
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 1.5rem 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  min-width: 90px;
+}
+
+.btn:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.btn:focus {
+  outline: 4px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.inc {
+  background: #39ace7;
+  color: white;
+}
+.dec {
+  background: #cadeef;
+  color: #0784b5;
+}
+.reset {
+  background: #9bd4e4;
+  color: white;
+}
+.random {
+  background: white;
+  color: #0784b5;
+}
+
+.app.dark .inc {
+  background: #ff0000;
+  color: #f5eded;
+}
+.app.dark .dec {
+  background: #950101;
+  color: #f5eded;
+}
+.app.dark .reset {
+  background: #3d0000;
+  color: #f5eded;
+}
+.app.dark .random {
+  background: #f5eded;
+  color: #000000;
+}
+
+.step-input {
+  padding: 1.5rem 1rem;
+  font-size: 2rem;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  width: 120px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #0784b5;
+  text-align: center;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.app.dark .step-input {
+  background: rgba(245, 237, 237, 0.2);
+  color: #f5eded;
+  border-color: rgba(245, 237, 237, 0.5);
+}
+
+.step-input:focus {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .counter-display {
+    font-size: clamp(3rem, 15vw, 8rem);
+    padding: 2rem 3rem;
+    margin: 1.5rem 0;
+  }
+
+  .controls {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.8rem;
+    min-width: 75px;
+  }
+
+  .step-input {
+    padding: 1.2rem 0.8rem;
+    font-size: 1.6rem;
+    width: 100px;
+  }
+
+  .actions {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .counter-display {
+    padding: 1.5rem 2rem;
+  }
+}
