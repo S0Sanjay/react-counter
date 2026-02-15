@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterControls from "./components/CounterControls";
 import ResetButtons from "./components/ResetButtons";
@@ -10,35 +10,43 @@ function App() {
   const [step, setStep] = useState(1);
   const [isDark, setIsDark] = useState(false);
 
-  useEffect(() => {
-    const data = localStorage.getItem("counterApp");
-    if (data) {
-      const { count: savedCount, theme } = JSON.parse(data);
-      setCount(savedCount || 0);
-      setIsDark(theme === "dark");
-    }
-  }, []);
+  const clickAudio = useRef(new Audio("/sounds/click.mp3"));
+  const resetAudio = useRef(new Audio("/sounds/reset.mp3"));
+  const randomAudio = useRef(new Audio("/sounds/random.mp3"));
 
-  useEffect(() => {
-    localStorage.setItem(
-      "counterApp",
-      JSON.stringify({
-        count,
-        theme: isDark ? "dark" : "light",
-      }),
-    );
-  }, [count, isDark]);
+  const increment = () => {
+    clickAudio.current.currentTime = 0;
+    clickAudio.current.play();
+    setCount((c) => c + step);
+  };
 
-  const increment = () => setCount((c) => c + step);
-  const decrement = () => setCount((c) => c - step);
-  const reset = () => setCount(0);
-  const randomReset = () => setCount(Math.floor(Math.random() * 100) - 50);
+  const decrement = () => {
+    clickAudio.current.currentTime = 0;
+    clickAudio.current.play();
+    setCount((c) => c - step);
+  };
+
+  const reset = () => {
+    resetAudio.current.currentTime = 0;
+    resetAudio.current.play();
+    setCount(0);
+  };
+
+  const randomReset = () => {
+    randomAudio.current.currentTime = 0;
+    randomAudio.current.play();
+    setCount(Math.floor(Math.random() * 100) - 50);
+  };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <div className={`app ${isDark ? "dark" : ""}`}>
       <header>
         <h1>🔢 React Counter</h1>
-        <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
+        <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
       </header>
 
       <main>

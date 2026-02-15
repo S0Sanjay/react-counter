@@ -3,7 +3,7 @@
 A modern, production-ready React counter app with themes, step control, persistence, and responsive design.
 
 🔗 Live Demo:
-👉 [https://s0sanjay.github.io/react-counter/](https://s0sanjay.github.io/react-counter/)
+👉 https://react-counter-mu-dun.vercel.app/
 
 ---
 
