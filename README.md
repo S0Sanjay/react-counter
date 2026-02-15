@@ -3,7 +3,7 @@
 A modern, production-ready React counter app with themes, step control, persistence, and responsive design.
 
 🔗 Live Demo:
-👉 https://react-counter-mu-dun.vercel.app/
+👉 [https://react-counter-mu-dun.vercel.app/](https://react-counter-eight-smoky.vercel.app/)
 
 ---
 
